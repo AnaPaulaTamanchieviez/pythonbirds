@@ -1,16 +1,17 @@
 class Pessoa:
-    def __init__(self, nome=None, idade=23):
+    def __init__(self, *filhos, nome=None, idade=23):
         self.idade = idade
         self.nome = nome
+        self.filhos = list(filhos)
 
     def cumprimentar (self):
-        return f'Olá {p.nome}'
+        return f'Olá {id(self)}'
 
 if __name__ == '__main__':
-    p = Pessoa('Ana')
+    ana = Pessoa(nome='Ana')
+    douglas = Pessoa(ana, nome='Douglas') #o objeto Pessoa (ana) coloquei como filho do objeto douglas
     print(p.cumprimentar())
     print(p.nome)
-    p.nome = 'Ana'
-    print(p.cumprimentar())
+
 
 
